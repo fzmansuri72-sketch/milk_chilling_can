@@ -9,3 +9,6 @@ const char *password = "12345678";
 #define ONE_WIRE_BUS 4  // D2 Pin (DS18B20 Temperature Sensor)
 #define PH_PIN A0       // A0 Pin (Analog pH Sensor)
 #define RELAY_PIN 14    // D5 Pin (12V Peltier Cooling Relay Module)
+OneWire oneWire(ONE_WIRE_BUS);
+DallasTemperature sensors(&oneWire);
+ESP8266WebServer server(80);
