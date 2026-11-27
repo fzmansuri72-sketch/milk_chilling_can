@@ -39,7 +39,6 @@ void loop() {
   // Read DS18B20 Temperature Sensor
   sensors.requestTemperatures();
   float currentTemp = sensors.getTempCByIndex(0);
-    // Read pH Sensor (Analog Read & Voltage Conversion)
   int analogVal = analogRead(PH_PIN);
   float voltage = analogVal * (3.3 / 1023.0);
   // Basic Calibration Equation (Adjust slope as per your pH buffer calibration)
