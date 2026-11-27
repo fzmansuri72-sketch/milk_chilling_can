@@ -35,4 +35,28 @@ void setup() {
     server.on("/data", handleData);
     server.begin();
 }
-
+void loop() {
+  server.handleClient();
+  // Read DS18B20 Temperature Sensor
+  sensors.requestTemperatures();
+  float currentTemp = sensors.getTempCByIndex(0);
+    // Read pH Sensor (Analog Read & Voltage Conversion)
+  int analogVal = analogRead(PH_PIN);
+  float voltage = analogVal * (3.3 / 1023.0);
+  // Basic Calibration Equation (Adjust slope as per your pH buffer calibration)
+  phValue = 3.5 * voltage; 
+  // Valid Temperature Check (Avoid sensor disconnect error -127°C)
+  if (currentTemp != -127.00 && currentTemp != 85.00) {
+    tempC = currentTemp;
+// --- Temperature Maintenance Logic (4°C to 6°C) ---
+    if (tempC > 6.0 && !isCoolingOn) {
+        digitalWrite(RELAY_PIN, LOW); // Relay ON -> Peltier Cooling Started
+        isCoolingOn = true;
+        Serial.println("Temp > 6.0 C -> Cooling Started");
+    }    
+    else if (tempC <= 4.0 && isCoolingOn) {
+        digitalWrite(RELAY_PIN, HIGH); // Relay OFF -> Peltier Cooling Stopped
+        isCoolingOn = false;
+        Serial.println("Temp <= 4.0 C -> Cooling Stopped");
+    }
+  }
