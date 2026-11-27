@@ -48,7 +48,7 @@ void loop() {
   // Valid Temperature Check (Avoid sensor disconnect error -127°C)
   if (currentTemp != -127.00 && currentTemp != 85.00) {
     tempC = currentTemp;
-// --- Temperature Maintenance Logic (4°C to 6°C) ---
+// --- Temperature Maintenance Logic (4°C to 6°C) ---//
     if (tempC > 6.0 && !isCoolingOn) {
         digitalWrite(RELAY_PIN, LOW); // Relay ON -> Peltier Cooling Started
         isCoolingOn = true;
