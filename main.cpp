@@ -19,7 +19,6 @@ void handleData() {
 }
 void setup() {
     Serial.begin(115200);
-    // Relay Pin Configuration (Active LOW relay module assumed)
     pinMode(RELAY_PIN, OUTPUT);
     digitalWrite(RELAY_PIN, HIGH); // Initially OFF (HIGH = Relay OFF)
     sensors.begin();
