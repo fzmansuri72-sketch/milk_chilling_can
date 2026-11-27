@@ -2,7 +2,6 @@
 #include <ESP8266WebServer.h>
 #include <OneWire.h>
 #include <DallasTemperature.h>
-// WiFi Access Point Details
 const char *ssid = "Milk_Can_WiFi";
 const char *password = "12345678";
 // Pins Setup
@@ -60,3 +59,5 @@ void loop() {
         Serial.println("Temp <= 4.0 C -> Cooling Stopped");
     }
   }
+  delay(1000); // 1 second update cycle
+}
