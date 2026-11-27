@@ -20,7 +20,7 @@ void handleData() {
 void setup() {
     Serial.begin(115200);
     pinMode(RELAY_PIN, OUTPUT);
-    digitalWrite(RELAY_PIN, HIGH); // Initially OFF (HIGH = Relay OFF)
+    digitalWrite(RELAY_PIN, HIGH); 
     sensors.begin();
     // Start Access Point (No Internet Required)
     WiFi.softAP(ssid, password);
