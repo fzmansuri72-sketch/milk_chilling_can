@@ -12,3 +12,6 @@ const char *password = "12345678";
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 ESP8266WebServer server(80);
+float tempC = 0.0;
+float phValue = 0.0;
+bool isCoolingOn = false;
