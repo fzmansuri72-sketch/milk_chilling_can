@@ -22,7 +22,6 @@ void setup() {
     pinMode(RELAY_PIN, OUTPUT);
     digitalWrite(RELAY_PIN, HIGH); 
     sensors.begin();
-    // Start Access Point (No Internet Required)
     WiFi.softAP(ssid, password);
     Serial.println("\nMilk Can Hotspot Started!");
     Serial.print("IP Address: ");
