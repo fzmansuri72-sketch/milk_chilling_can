@@ -15,3 +15,8 @@ ESP8266WebServer server(80);
 float tempC = 0.0;
 float phValue = 0.0;
 bool isCoolingOn = false;
+// JSON Data Endpoint for Mobile App (http://192.168.4.1/data)
+void handleData() {
+  String json = "{\"temp\":" + String(tempC, 1) + ",\"ph\":" + String(phValue, 2) + "}";
+  server.send(200, "application/json", json);
+}
