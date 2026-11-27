@@ -20,3 +20,18 @@ void handleData() {
   String json = "{\"temp\":" + String(tempC, 1) + ",\"ph\":" + String(phValue, 2) + "}";
   server.send(200, "application/json", json);
 }
+void setup() {
+    Serial.begin(115200);
+    // Relay Pin Configuration (Active LOW relay module assumed)
+    pinMode(RELAY_PIN, OUTPUT);
+    digitalWrite(RELAY_PIN, HIGH); // Initially OFF (HIGH = Relay OFF)
+    sensors.begin();
+    // Start Access Point (No Internet Required)
+    WiFi.softAP(ssid, password);
+    Serial.println("\nMilk Can Hotspot Started!");
+    Serial.print("IP Address: ");
+    Serial.println(WiFi.softAPIP()); // Default IP: 192.168.4.1
+    / Handle API Requests from MIT App Inventor
+    server.on("/data", handleData);
+    server.begin();
+}
