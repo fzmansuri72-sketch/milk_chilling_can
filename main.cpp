@@ -45,7 +45,7 @@ void loop() {
         Serial.println("Temp > 6.0 C -> Cooling Started");
     }    
     else if (tempC <= 4.0 && isCoolingOn) {
-        digitalWrite(RELAY_PIN, HIGH); // Relay OFF -> Peltier Cooling Stopped
+        digitalWrite(RELAY_PIN, HIGH); 
         isCoolingOn = false;
         Serial.println("Temp <= 4.0 C -> Cooling Stopped");
     }
