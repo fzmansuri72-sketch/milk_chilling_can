@@ -37,7 +37,6 @@ void loop() {
   int analogVal = analogRead(PH_PIN);
   float voltage = analogVal * (3.3 / 1023.0);
   phValue = 3.5 * voltage; 
-  // Valid Temperature Check (Avoid sensor disconnect error -127°C)
   if (currentTemp != -127.00 && currentTemp != 85.00) {
     tempC = currentTemp;
     if (tempC > 6.0 && !isCoolingOn) {
