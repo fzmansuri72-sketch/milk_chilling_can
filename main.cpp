@@ -50,5 +50,5 @@ void loop() {
         Serial.println("Temp <= 4.0 C -> Cooling Stopped");
     }
   }
-  delay(1000); // 1 second update cycle
+  delay(1000); 
 }
