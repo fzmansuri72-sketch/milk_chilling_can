@@ -32,7 +32,6 @@ void setup() {
 }
 void loop() {
   server.handleClient();
-  // Read DS18B20 Temperature Sensor
   sensors.requestTemperatures();
   float currentTemp = sensors.getTempCByIndex(0);
   int analogVal = analogRead(PH_PIN);
