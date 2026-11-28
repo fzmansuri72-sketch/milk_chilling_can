@@ -25,7 +25,7 @@ void setup() {
     WiFi.softAP(ssid, password);
     Serial.println("\nMilk Can Hotspot Started!");
     Serial.print("IP Address: ");
-    Serial.println(WiFi.softAPIP()); // Default IP: 192.168.4.1
+    Serial.println(WiFi.softAPIP()); 
     / Handle API Requests from MIT App Inventor
     server.on("/data", handleData);
     server.begin();
